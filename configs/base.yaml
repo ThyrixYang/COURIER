@@ -1,0 +1,46 @@
+data:
+  max_user_seq_len: 5
+  max_pv_seq_len: 5
+  max_batch_image: 200
+  image_size: 224
+  image_widen_edge: 0.01
+  max_text_len: 100
+  batch_size: 20
+  num_workers: 0
+
+train:
+  tau: 1
+  max_epochs: 1
+  weight_decay: 1e-6
+  lr: 1e-3
+  # (ctr, dev)
+  precision: 16
+  # (adam, lars)
+  optimizer: "adam"
+  debug: False
+
+transforms:
+  train:
+    size: 224
+
+model:
+  # (swin_t, shufflenet)
+  image_backbone: swin_t
+  fix_image_backbone: True
+  fix_text_backbone: True
+  use_image_pretrain: True
+
+  load_from: null
+  save_name: null
+  val: False
+
+tensorboard:
+  image_freq: 100000000
+  scalar_freq: 1
+  hist_freq: 100000000
+
+logging:
+  # (builtin, text)
+  progress: builtin
+  log_every_n_steps: 50
+  smoothing: 0.99

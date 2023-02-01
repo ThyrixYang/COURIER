@@ -1,0 +1,33 @@
+data:
+  max_batch_image: 640
+  batch_size: 55
+  num_workers: 20
+
+train:
+  optimizer: "adam"
+  lr: 0.0001
+  debug: False
+  check_val_every_n_epoch: 10000
+  max_epochs: 1
+
+model:
+  image_backbone: swin_t
+  fix_image_backbone: False
+  fix_text_backbone: True
+  use_image_pretrain: True
+  emb_size: 256
+  ctr_weight: 1.0
+  contrastive_weight: 1.0
+  user_seq_loss_weight: 1.0
+  tau: 20
+  dist_batch: True
+  val: False
+
+logging:
+  progress: builtin
+  log_every_n_steps: 50
+
+tensorboard:
+  image_freq: 1000000000
+  scalar_freq: 1
+  hist_freq: 1000
