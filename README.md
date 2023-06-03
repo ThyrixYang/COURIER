@@ -1,3 +1,5 @@
+Please check the Appendix.pdf for some additional experimental results.
+
 # Reproducing
 
 We provide the core code of our COURIER mthod.
